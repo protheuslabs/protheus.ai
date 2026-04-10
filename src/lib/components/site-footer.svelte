@@ -1,9 +1,9 @@
 <script lang="ts">
-	import BrandMark from "$lib/components/brand-mark.svelte";
-	import SocialIcon from "$lib/components/social-icon.svelte";
-	import { Badge } from "$lib/components/ui/badge/index.js";
-	import { Separator } from "$lib/components/ui/separator/index.js";
-	import { company, footerSections, socialLinks } from "$lib/data/site.js";
+	import BrandMark from '$lib/components/brand-mark.svelte';
+	import SocialIcon from '$lib/components/social-icon.svelte';
+	import { Badge } from '$lib/components/ui/badge/index.js';
+	import { Separator } from '$lib/components/ui/separator/index.js';
+	import { company, footerSections, socialLinks } from '$lib/data/site.js';
 
 	const visibleSocials = $derived(socialLinks.filter((link) => link.href.trim().length > 0));
 </script>
@@ -23,7 +23,7 @@
 					{company.description}
 				</p>
 				<Badge variant="outline" class="rounded-full border-border/80 bg-card/80 px-3 py-1">
-					Legitimate product shell, ready for real brand assets and additional product pages.
+					Product site tuned for public references, install clarity, and operational transparency.
 				</Badge>
 			</div>
 
@@ -36,8 +36,8 @@
 								<li>
 									<a
 										href={item.href}
-										target={item.external ? "_blank" : undefined}
-										rel={item.external ? "noreferrer" : undefined}
+										target={item.external ? '_blank' : undefined}
+										rel={item.external ? 'noreferrer' : undefined}
 										class="text-sm leading-6 text-muted-foreground transition hover:text-foreground"
 									>
 										{item.label}
@@ -54,8 +54,8 @@
 
 		<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 			<p class="text-sm text-muted-foreground">
-				Protheus Labs website concept, informed by the current public organization profile and
-				InfRing quick-start flow.
+				Protheus Labs website reflects the current public repositories and install-facing
+				positioning for real operator workflows.
 			</p>
 
 			{#if visibleSocials.length > 0}

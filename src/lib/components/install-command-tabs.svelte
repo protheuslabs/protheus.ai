@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { onDestroy, onMount } from "svelte";
-	import { Badge } from "$lib/components/ui/badge/index.js";
-	import { Button } from "$lib/components/ui/button/index.js";
-	import * as Tabs from "$lib/components/ui/tabs/index.js";
-	import { infringInstallCommands } from "$lib/data/site.js";
-	import { Check, Copy } from "@lucide/svelte";
+	import { onDestroy, onMount } from 'svelte';
+	import { Badge } from '$lib/components/ui/badge/index.js';
+	import { Button } from '$lib/components/ui/button/index.js';
+	import * as Tabs from '$lib/components/ui/tabs/index.js';
+	import { infringInstallCommands } from '$lib/data/site.js';
+	import { Check, Copy } from '@lucide/svelte';
 
 	type Platform = keyof typeof infringInstallCommands;
 
-	let platform = $state<Platform>("mac");
+	let platform = $state<Platform>('mac');
 	let copied = $state(false);
 	let detectedLabel = $state<string>(infringInstallCommands.mac.detectedLabel);
 	let resetHandle: ReturnType<typeof setTimeout> | undefined;
@@ -22,12 +22,12 @@
 		const source = [
 			navigator.userAgent,
 			navigator.platform,
-			userAgentData.userAgentData?.platform ?? ""
+			userAgentData.userAgentData?.platform ?? ''
 		]
-			.join(" ")
+			.join(' ')
 			.toLowerCase();
 
-		return source.includes("win") ? "windows" : "mac";
+		return source.includes('win') ? 'windows' : 'mac';
 	}
 
 	async function copyActiveCommand() {
@@ -53,13 +53,15 @@
 	<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
 		<div class="space-y-2">
 			<p class="section-label">Install InfRing</p>
-			<h2 class="text-2xl font-semibold tracking-tight">Copy the quick-start and launch locally.</h2>
+			<h2 class="text-2xl font-semibold tracking-tight">
+				Copy the quick-start and launch locally.
+			</h2>
 			<p class="text-sm leading-6 text-muted-foreground">{activeInstall.hint}</p>
 		</div>
 
 		<Badge
 			variant="outline"
-			class="rounded-full border-border/80 bg-background/80 px-3 py-1 text-[0.65rem] uppercase tracking-[0.18em]"
+			class="rounded-full border-border/80 bg-background/80 px-3 py-1 text-[0.65rem] tracking-[0.18em] uppercase"
 		>
 			Detected {detectedLabel}
 		</Badge>
@@ -72,13 +74,13 @@
 		>
 			<Tabs.Trigger
 				value="mac"
-				class="rounded-none border-b-2 border-transparent px-0 pb-3 pt-0 text-sm data-[state=active]:border-brand data-[state=active]:bg-transparent data-[state=active]:text-foreground"
+				class="rounded-none border-b-2 border-transparent px-0 pt-0 pb-3 text-sm data-[state=active]:border-brand data-[state=active]:bg-transparent data-[state=active]:text-foreground"
 			>
 				macOS
 			</Tabs.Trigger>
 			<Tabs.Trigger
 				value="windows"
-				class="rounded-none border-b-2 border-transparent px-0 pb-3 pt-0 text-sm data-[state=active]:border-brand data-[state=active]:bg-transparent data-[state=active]:text-foreground"
+				class="rounded-none border-b-2 border-transparent px-0 pt-0 pb-3 text-sm data-[state=active]:border-brand data-[state=active]:bg-transparent data-[state=active]:text-foreground"
 			>
 				Windows
 			</Tabs.Trigger>
@@ -86,7 +88,9 @@
 	</Tabs.Root>
 
 	<div class="mt-5 overflow-hidden rounded-[1.5rem] border border-border/80 bg-background/70">
-		<div class="flex flex-col gap-4 border-b border-border/80 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+		<div
+			class="flex flex-col gap-4 border-b border-border/80 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"
+		>
 			<div>
 				<p class="text-sm font-semibold">{activeInstall.label} install</p>
 				<p class="text-sm leading-6 text-muted-foreground">
@@ -105,7 +109,9 @@
 			</Button>
 		</div>
 
-		<pre class="overflow-x-auto px-4 py-5 text-sm leading-7 text-foreground"><code>{activeInstall.command}</code></pre>
+		<pre class="overflow-x-auto px-4 py-5 text-sm leading-7 text-foreground"><code
+				>{activeInstall.command}</code
+			></pre>
 	</div>
 
 	<p class="mt-4 text-sm leading-6 text-muted-foreground">

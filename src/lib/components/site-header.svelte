@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { page } from "$app/state";
-	import SocialIcon from "$lib/components/social-icon.svelte";
-	import { Button } from "$lib/components/ui/button/index.js";
-	import BrandMark from "$lib/components/brand-mark.svelte";
-	import { company, products } from "$lib/data/site.js";
-	import { ArrowUpRight, ChevronDown, Menu, X } from "@lucide/svelte";
+	import { page } from '$app/state';
+	import SocialIcon from '$lib/components/social-icon.svelte';
+	import { Button } from '$lib/components/ui/button/index.js';
+	import BrandMark from '$lib/components/brand-mark.svelte';
+	import { company, products } from '$lib/data/site.js';
+	import { ArrowUpRight, ChevronDown, Menu, X } from '@lucide/svelte';
 
 	let mobileOpen = $state(false);
 
@@ -17,7 +17,7 @@
 	});
 
 	function productHref(slug: string, anchor: string) {
-		return slug === "infring" ? "/infring" : `/#${anchor}`;
+		return slug === 'infring' ? '/infring' : `/#${anchor}`;
 	}
 </script>
 
@@ -26,7 +26,7 @@
 		<a href="/" class="flex items-center gap-3">
 			<BrandMark size="sm" />
 			<div class="leading-tight">
-				<p class="text-sm font-semibold tracking-[0.18em] uppercase text-muted-foreground">
+				<p class="text-sm font-semibold tracking-[0.18em] text-muted-foreground uppercase">
 					Protheus
 				</p>
 				<p class="text-sm font-medium text-foreground/90">Labs</p>
@@ -37,7 +37,7 @@
 			<a
 				href="/"
 				class="rounded-full px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-foreground"
-				aria-current={pathname === "/" ? "page" : undefined}
+				aria-current={pathname === '/' ? 'page' : undefined}
 			>
 				Overview
 			</a>
@@ -53,7 +53,7 @@
 				</button>
 
 				<div
-					class="invisible absolute right-0 top-full z-30 mt-3 w-[24rem] translate-y-2 rounded-[1.75rem] border border-border/80 bg-card/95 p-3 opacity-0 shadow-[0_30px_90px_-36px_rgba(15,23,42,0.35)] backdrop-blur-xl transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+					class="invisible absolute top-full right-0 z-30 mt-3 w-[24rem] translate-y-2 rounded-[1.75rem] border border-border/80 bg-card/95 p-3 opacity-0 shadow-[0_30px_90px_-36px_rgba(15,23,42,0.35)] backdrop-blur-xl transition duration-200 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"
 				>
 					<div class="grid gap-2">
 						{#each navProducts as product}
@@ -64,7 +64,7 @@
 								<div class="mb-2 flex items-center justify-between gap-3">
 									<div>
 										<p class="text-sm font-semibold">{product.name}</p>
-										<p class="text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground">
+										<p class="text-[0.65rem] tracking-[0.22em] text-muted-foreground uppercase">
 											{product.category}
 										</p>
 									</div>
@@ -88,16 +88,14 @@
 				<SocialIcon platform="github" class="size-4" />
 				GitHub
 			</Button>
-			<Button href="/infring" size="sm" class="rounded-full px-4">
-				Explore InfRing
-			</Button>
+			<Button href="/infring" size="sm" class="rounded-full px-4">Explore InfRing</Button>
 		</nav>
 
 		<button
 			type="button"
 			class="ml-auto inline-flex size-10 items-center justify-center rounded-full border border-border/80 bg-card/70 text-foreground md:hidden"
 			aria-expanded={mobileOpen}
-			aria-label={mobileOpen ? "Close menu" : "Open menu"}
+			aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
 			onclick={() => (mobileOpen = !mobileOpen)}
 		>
 			{#if mobileOpen}

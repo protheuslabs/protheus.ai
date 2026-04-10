@@ -1,37 +1,46 @@
 <script lang="ts">
-	import InstallCommandTabs from "$lib/components/install-command-tabs.svelte";
-	import SocialIcon from "$lib/components/social-icon.svelte";
-	import { Badge } from "$lib/components/ui/badge/index.js";
-	import { Button } from "$lib/components/ui/button/index.js";
-	import * as Card from "$lib/components/ui/card/index.js";
-	import {
-		infringCapabilities,
-		infringInstallModes,
-		infringSurfaces
-	} from "$lib/data/site.js";
-	import {
-		ArrowUpRight,
-		ReceiptText,
-		ShieldCheck,
-		SquareTerminal,
-		Workflow
-	} from "@lucide/svelte";
+	import InstallCommandTabs from '$lib/components/install-command-tabs.svelte';
+	import SocialIcon from '$lib/components/social-icon.svelte';
+	import { Badge } from '$lib/components/ui/badge/index.js';
+	import { Button } from '$lib/components/ui/button/index.js';
+	import * as Card from '$lib/components/ui/card/index.js';
+	import { infringCapabilities, infringInstallModes, infringSurfaces } from '$lib/data/site.js';
+	import { ArrowUpRight, ReceiptText, ShieldCheck, SquareTerminal, Workflow } from '@lucide/svelte';
 
 	const capabilityIcons = [ReceiptText, ShieldCheck, Workflow, SquareTerminal];
 	const operatingSteps = [
 		{
-			title: "Install the runtime",
-			description: "Run the quick-start for your platform and choose the footprint you want."
+			title: 'Install the runtime',
+			description:
+				'Run the quick-start, verify the command, then launch the gateway in under a minute.'
 		},
 		{
-			title: "Launch the gateway",
+			title: 'Launch the gateway',
 			description:
-				"Start the supervised local gateway and move directly into the dashboard-backed surface."
+				'Start the local gateway and open the dashboard to confirm service health and active policy.'
 		},
 		{
-			title: "Operate with evidence",
+			title: 'Operate with evidence',
 			description:
-				"Use the runtime, CLI, or SDK surfaces while staying inside a governed, receipt-first loop."
+				'Run CLI/SDK operations in a receipt-first loop so each meaningful action is traceable.'
+		}
+	];
+
+	const useCases = [
+		{
+			title: 'On-device experimentation',
+			description:
+				'Run controlled pilot workloads on a single machine before deciding on broader rollout.'
+		},
+		{
+			title: 'Local-first development',
+			description:
+				'Validate automation and policy behavior locally, then replicate the same footprint for production teams.'
+		},
+		{
+			title: 'Operations handoff',
+			description:
+				'Move from one-off command sessions to repeatable, profile-based deployment patterns.'
 		}
 	];
 </script>
@@ -46,29 +55,32 @@
 
 <section class="relative overflow-hidden border-b border-border/70">
 	<div
-		class="ghost-grid pointer-events-none absolute inset-0 opacity-35 [mask-image:linear-gradient(to_bottom,white,transparent_84%)]"
+		class="ghost-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,white,transparent_84%)] opacity-35"
 	></div>
-	<div class="pointer-events-none absolute left-0 top-10 h-80 w-80 rounded-full bg-brand/10 blur-3xl"></div>
+	<div
+		class="pointer-events-none absolute top-10 left-0 h-80 w-80 rounded-full bg-brand/10 blur-3xl"
+	></div>
 
 	<div class="site-shell relative z-10 grid gap-14 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:py-28">
 		<div class="space-y-8">
 			<Badge
 				variant="outline"
-				class="rounded-full border-border/80 bg-card/80 px-4 py-1 text-[0.68rem] uppercase tracking-[0.2em]"
+				class="rounded-full border-border/80 bg-card/80 px-4 py-1 text-[0.68rem] tracking-[0.2em] uppercase"
 			>
 				Flagship runtime
 			</Badge>
 
 			<div class="space-y-5">
 				<p class="section-label">InfRing</p>
-				<h1 class="display-title max-w-4xl text-5xl leading-[0.95] tracking-tight text-balance sm:text-6xl">
-					A local-first runtime for autonomous systems that need evidence, policy, and
-					operator trust.
+				<h1
+					class="display-title max-w-4xl text-5xl leading-[0.95] tracking-tight text-balance sm:text-6xl"
+				>
+					A local-first runtime for autonomous systems that need evidence, policy, and operator
+					trust.
 				</h1>
 				<p class="max-w-2xl text-lg leading-8 text-muted-foreground">
-					InfRing is described publicly as a deterministic, receipt-first autonomous runtime
-					built around a Rust-first control surface and a supervised gateway workflow. This
-					page turns that repository story into a real product experience.
+					InfRing is positioned as a deterministic, receipt-first autonomous runtime built around a
+					Rust-authoritative core, with an install process designed for fast evaluation.
 				</p>
 			</div>
 
@@ -97,15 +109,14 @@
 				<div class="rounded-[1.4rem] border border-border/80 bg-card/70 p-4">
 					<p class="section-label mb-2">Gateway</p>
 					<p class="text-sm leading-7 text-muted-foreground">
-						Public docs point operators to a local gateway and dashboard flow rather than a
-						vague hosted abstraction.
+						Public docs point operators to a local gateway and dashboard flow rather than a vague
+						hosted abstraction.
 					</p>
 				</div>
 				<div class="rounded-[1.4rem] border border-border/80 bg-card/70 p-4">
 					<p class="section-label mb-2">Profiles</p>
 					<p class="text-sm leading-7 text-muted-foreground">
-						Install minimal, full, pure, or tiny-max depending on how much runtime surface
-						you want available.
+						Choose minimal, full, pure, or tiny-max based on workload scope and hardware budget.
 					</p>
 				</div>
 			</div>
@@ -122,11 +133,11 @@
 		<div class="max-w-3xl space-y-4">
 			<p class="section-label">What the product showcases</p>
 			<h2 class="display-title text-4xl leading-tight tracking-tight sm:text-5xl">
-				Everything a legitimate runtime page should answer quickly.
+				Everything a buyer checks before a pilot: setup speed, control surface, and safety.
 			</h2>
 			<p class="text-lg leading-8 text-muted-foreground">
-				Why it exists, how it installs, what surfaces it exposes, and how it behaves under
-				operator control.
+				How it installs, what it exposes, and how it behaves in ongoing operations are all visible
+				in one place.
 			</p>
 		</div>
 
@@ -135,12 +146,38 @@
 				{@const Icon = capabilityIcons[index]}
 				<Card.Root class="glass-panel rounded-[1.75rem] border-border/80">
 					<Card.Header class="space-y-4">
-						<div class="inline-flex size-11 items-center justify-center rounded-full border border-border/80 bg-background/80">
+						<div
+							class="inline-flex size-11 items-center justify-center rounded-full border border-border/80 bg-background/80"
+						>
 							<Icon class="size-5 text-brand" />
 						</div>
 						<Card.Title class="text-xl tracking-tight">{capability.title}</Card.Title>
 						<Card.Description class="text-sm leading-7 text-muted-foreground">
 							{capability.description}
+						</Card.Description>
+					</Card.Header>
+				</Card.Root>
+			{/each}
+		</div>
+	</div>
+</section>
+
+<section class="border-y border-border/70 py-20 lg:py-24">
+	<div class="site-shell">
+		<div class="max-w-3xl space-y-4">
+			<p class="section-label">Use cases</p>
+			<h2 class="display-title text-4xl leading-tight tracking-tight sm:text-5xl">
+				Practical scenarios teams usually pilot first.
+			</h2>
+		</div>
+
+		<div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+			{#each useCases as useCase}
+				<Card.Root class="glass-panel rounded-[1.75rem] border-border/80">
+					<Card.Header class="space-y-4">
+						<Card.Title class="text-xl tracking-tight">{useCase.title}</Card.Title>
+						<Card.Description class="text-sm leading-7 text-muted-foreground">
+							{useCase.description}
 						</Card.Description>
 					</Card.Header>
 				</Card.Root>
@@ -157,12 +194,14 @@
 				InfRing reads like a product, not just a codebase.
 			</h2>
 			<p class="text-lg leading-8 text-muted-foreground">
-				The public material already exposes install modes, gateway behavior, SDK surfaces, and
-				CLI operations. This page simply makes those surfaces scannable.
+				The public material already exposes install modes, gateway behavior, SDK surfaces, and CLI
+				operations. This page simply makes those surfaces scannable.
 			</p>
 			<p class="text-sm leading-7 text-muted-foreground">
 				The README also notes a dashboard path at
-				<code class="rounded bg-card px-1.5 py-1 text-foreground">127.0.0.1:4173/dashboard#chat</code>
+				<code class="rounded bg-card px-1.5 py-1 text-foreground"
+					>127.0.0.1:4173/dashboard#chat</code
+				>
 				and a health endpoint at
 				<code class="rounded bg-card px-1.5 py-1 text-foreground">127.0.0.1:4173/healthz</code>.
 			</p>
@@ -214,7 +253,7 @@
 					<Card.Header class="space-y-4">
 						<Badge
 							variant="outline"
-							class="rounded-full border-border/80 bg-background/80 px-3 py-1 text-[0.65rem] uppercase tracking-[0.18em]"
+							class="rounded-full border-border/80 bg-background/80 px-3 py-1 text-[0.65rem] tracking-[0.18em] uppercase"
 						>
 							{mode.flag}
 						</Badge>
