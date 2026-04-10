@@ -1,3 +1,7 @@
+# Protheus AI Website
+
+Official product website: https://protheus.ai
+
 # sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
@@ -85,3 +89,7 @@ Then, in the GitHub repo settings, set:
 - Enforce HTTPS
 
 After DNS propagation, the site should be reachable at `https://protheus.ai`.
+
+## Repository Link
+
+Live site: https://protheus.ai
